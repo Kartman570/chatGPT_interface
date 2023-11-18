@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChatGPT Interface</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+        #messageInput {
+            width: 80%;
+            font-size: 1.2em;
+            padding: 10px;
+        }
+        #sendButton {
+            font-size: 1.2em;
+            padding: 10px 20px;
+        }
+        #response {
+            margin-top: 20px;
+        }
+        .loader {
+            border: 16px solid #f3f3f3;
+            border-top: 16px solid #3498db;
+            border-radius: 50%;
+            width: 120px;
+            height: 120px;
+            animation: spin 2s linear infinite;
+            display: inline-block;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <h1>Chat with GPT</h1>
+    <input type="text" id="messageInput" placeholder="Введите ваше сообщение здесь">
+    <button id="sendButton" onclick="sendMessage()">Отправить</button>
+    <div id="loading" class="loader" style="display:none;"></div>
+    <p id="response"></p>
+</body>
+<script src="/static/script.js"></script>
+</html>
+
