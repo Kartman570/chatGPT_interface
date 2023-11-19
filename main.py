@@ -14,9 +14,13 @@ templates = Jinja2Templates(directory="templates")
 conversation_log = [{"role": "system", "content": "You are an AI assistant. Keep your answers simple and short"}]
 
 
+class ChatRequest(BaseModel):
+    message: str
+
+
 @app.post("/chat/")
-async def chat(chat_request: str):
-    conversation_log.append({"role": "user", "content": chat_request})
+async def chat(chat_request: ChatRequest):
+    conversation_log.append({"role": "user", "content": chat_request.message})
     chatgpt_response = get_chatgpt_response(conversation_log)
     conversation_log.append({"role": "assistant", "content": chatgpt_response})
     return {"response": chatgpt_response}
