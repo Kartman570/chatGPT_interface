@@ -11,14 +11,16 @@ app.mount("/static", StaticFiles(directory="static"), name="static")
 
 templates = Jinja2Templates(directory="templates")
 
-class ChatRequest(BaseModel):
-    message: str
+conversation_log = [{"role": "system", "content": "You are an AI assistant. Keep your answers simple and short"}]
 
 
 @app.post("/chat/")
-async def chat(chat_request: ChatRequest):
-    chatgpt_response = get_chatgpt_response(chat_request.message)
+async def chat(chat_request: str):
+    conversation_log.append({"role": "user", "content": chat_request})
+    chatgpt_response = get_chatgpt_response(conversation_log)
+    conversation_log.append({"role": "assistant", "content": chatgpt_response})
     return {"response": chatgpt_response}
+
 
 @app.get("/chat_dialogue/", response_class=HTMLResponse)
 async def read_item(request: Request):
