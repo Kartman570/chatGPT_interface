@@ -1,6 +1,7 @@
 from openai import OpenAI
 
-client = OpenAI(api_key="CHATGPT_API_KEY")
+OPENAI_API_KEY = "PASTE YOUR KEY HERE"
+client = OpenAI(api_key=OPENAI_API_KEY)
 
 
 def get_chatgpt_response(message):

@@ -1,11 +1,15 @@
 Custom Chat-GPT API interface.<br>
 Work in progress.<br>
-It can remember dialogue context, but conversation log is one for all sessions.<br>
-Conversations log limited by complete 10 last messages<br>
 
-__/chat/__ endpoint for post requests<br>
+Basic endpoints:<br>
+__/chat/__ endpoint for post requests with conversation logging<br>
 __/chat_dialogue/__ html template url<br>
 __/docs/__ default FastAPI swagger<br>
+
+Proxi endpoint (https://api.openai.com/v1/...):<br>
+__/audio/speech/__<br>
+__/audio/transcriptions/__<br>
+__/audio/translations/__<br>
 
 Installation:<br>
 Paste correct openAI API key in __chatGPT.py__
