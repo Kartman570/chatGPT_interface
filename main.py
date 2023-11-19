@@ -20,6 +20,8 @@ class ChatRequest(BaseModel):
 
 @app.post("/chat/")
 async def chat(chat_request: ChatRequest):
+    if len(conversation_log) > 10:
+        del conversation_log[1:3]
     conversation_log.append({"role": "user", "content": chat_request.message})
     chatgpt_response = get_chatgpt_response(conversation_log)
     conversation_log.append({"role": "assistant", "content": chatgpt_response})

@@ -5,10 +5,8 @@ async function sendMessage() {
     let loadingIndicator = document.getElementById("loading");
     let sendButton = document.getElementById("sendButton");
 
-    // Добавляем сообщение пользователя в чат
-    appendMessageToChatBox("Вы: " + message, "user-message");
+    appendMessageToChatBox("You: " + message, "user-message");
 
-    // Показать индикатор загрузки и скрыть кнопку отправки
     loadingIndicator.style.display = "inline-block";
     sendButton.disabled = true;
 
@@ -26,16 +24,15 @@ async function sendMessage() {
             let data = await response.json();
             appendMessageToChatBox("GPT: " + data.response, "gpt-response");
         } else {
-            appendMessageToChatBox("Ошибка: " + response.status, "gpt-response");
+            appendMessageToChatBox("Error: " + response.status, "gpt-response");
         }
     } catch (error) {
-        appendMessageToChatBox("Ошибка: " + error, "gpt-response");
+        appendMessageToChatBox("Error: " + error, "gpt-response");
     } finally {
-        // Скрыть индикатор загрузки и включить кнопку отправки
         loadingIndicator.style.display = "none";
         sendButton.disabled = false;
-        messageInput.value = ""; // Очистка поля ввода
-        chatBox.scrollTop = chatBox.scrollHeight; // Прокрутка вниз к последнему сообщению
+        messageInput.value = "";
+        chatBox.scrollTop = chatBox.scrollHeight;
     }
 }
 

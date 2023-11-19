@@ -5,13 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ChatGPT Interface</title>
     <style>
-        /* Ваши стили здесь */
         #chatBox {
             /*height: 300px; */
             border: 1px solid #ccc;
             margin-bottom: 10px;
             padding: 10px;
-            /*overflow-y: auto; Включаем прокрутку */
+            overflow-y: auto;
         }
         .message {
             margin-bottom: 10px;
@@ -27,14 +26,13 @@
             background-color: #fce4ec;
             text-align: right;
         }
-        /* Другие стили */
     </style>
 </head>
 <body>
     <h1>Chat with GPT</h1>
     <div id="chatBox"></div>
-    <input type="text" id="messageInput" placeholder="Введите ваше сообщение здесь">
-    <button id="sendButton" onclick="sendMessage()">Отправить</button>
+    <input type="text" id="messageInput" placeholder="Type your message here">
+    <button id="sendButton" onclick="sendMessage()">Send</button>
     <div id="loading" class="loader" style="display:none;"></div>
 </body>
 <script src="/static/script.js"></script>
